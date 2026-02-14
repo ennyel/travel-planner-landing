@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">Travel PLanner</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#como-funciona">Como funciona</a></li>
+                <li><a href="#simulador">Simulador</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Tu próximo viaje comienza aquí</h1>
+                <p>Diseña tu itinerario perfecto con nuestro simulador interactivo.
+                    Elige  destino, días, presupuesto y estilo de viaje para recibir un plan  
+                    personalizado al instante.
+                </p>
+                <div class="hero-actions">
+                    <a href="#como-funciona">Comienza a planificar</a>
+                    <a href="#simulador" >Ver como funciona</a>
+                </div>
+                <div class="hero-card">
+                    <div>destinos</div>
+                    <div>dias</div>
+                    <div>viajes</div>
+                    
+                </div>
+            
+            </div>
+        </section>
+        <section class="como-funciona">
+            <div class="como-funciona-content">
+                <h1>Diseña tu viaje en 4 pasos</h1>
+                <div class="como-funciona-cards">
+
+                    <div class="paso-card">
+                        <h2>Elije tu destino</h2>
+                        <p>selecciona nuestros destinos disponibles</p>
+                    </div>
+                    <div class="paso-card">
+                        <h2>Define la duración</h2>
+                        <p>Define la cantidad de dias que deseas viajar</p>
+                    </div>
+                    <div class="paso-card">
+                        <h2>Selecciona tu plan</h2>
+                        <p>Selecciona alguno de nuestros planes disponibles: Economico, normal y Premium</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="destinos-section">
+            <div class="destinos-content">
+                <article class="destino-card">
+                    <img src="" alt="">
+                    
+                </article>
+            </div>
+        </section>
+        <section class="simulador-section">
+            <div class="simulador-content">
+                <h1>Simulador de viajes</h1>
+                <p>Personaliza tu experiencia y obtiene una estimacion de presupuesto al instante</p>
+                <form action="">
+                    <Label for="destino-select">Destinos</Label>
+                    <select name="destinos_select" id="destino-select">
+                        <option value="" hidden>Seleccione su destino</option>
+                    </select>
+                    
+                    <Label for="plan-select">Plan</Label>
+                    <select name="planes_select" id="plan-select">
+                        <option value="" hidden>Seleccione su plan</option>
+                        <option value="economico">Economico</option>
+                        <option value="normal">Normal</option>
+                        <option value="premium">Premium</option>
+                    </select>
+
+                    <input type="submit" value="Generar plan">
+                </form>
+
+            </div>
+        </section>
+        <section class="resultado-section"></section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Travel-planner Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
