@@ -71,7 +71,7 @@
             <div class="simulador-content">
                 <h1>Simulador de viajes</h1>
                 <p>Personaliza tu experiencia y obtiene una estimacion de presupuesto al instante</p>
-                <form action="">
+                <form id="simulador-form">
                     <label for="destino-select">Destinos</label>
                     <select name="destinos_select" id="destino-select" required>
                         <option value="" hidden>Seleccione su destino</option>
@@ -93,6 +93,7 @@
                     </select>
 
                     <input type="submit" value="Generar plan">
+                    <button type="button" id="btn-reset">Limpiar</button>
                 </form>
 
             </div>
