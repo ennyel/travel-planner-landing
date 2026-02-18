@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Planificador de Viaje</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,7 +19,7 @@
         </nav>
     </header>
     <main>
-        <section class="hero">
+        <section class="hero" id="inicio">
             <div class="hero-content">
                 <h1>Tu próximo viaje comienza aquí</h1>
                 <p>Diseña tu itinerario perfecto con nuestro simulador interactivo.
@@ -39,7 +39,7 @@
             
             </div>
         </section>
-        <section class="como-funciona">
+        <section class="como-funciona" id="como-funciona">
             <div class="como-funciona-content">
                 <h1>Diseña tu viaje en 4 pasos</h1>
                 <div class="como-funciona-cards">
@@ -67,18 +67,25 @@
                 </article>
             </div>
         </section>
-        <section class="simulador-section">
+        <section class="simulador-section" id="simulador">
             <div class="simulador-content">
                 <h1>Simulador de viajes</h1>
                 <p>Personaliza tu experiencia y obtiene una estimacion de presupuesto al instante</p>
                 <form action="">
-                    <Label for="destino-select">Destinos</Label>
-                    <select name="destinos_select" id="destino-select">
+                    <label for="destino-select">Destinos</label>
+                    <select name="destinos_select" id="destino-select" required>
                         <option value="" hidden>Seleccione su destino</option>
                     </select>
+
+                    <label for="dias">Días</label>
+                    <input type="number" id="dias" name="dias" min="1" max="30" required placeholder="Ej: 5">
+
+                    <label for="presupuesto">Presupuesto (USD)</label>
+                    <input type="number" id="presupuesto" name="presupuesto" min="50" step="10" required placeholder="Ej: 800">
+
                     
-                    <Label for="plan-select">Plan</Label>
-                    <select name="planes_select" id="plan-select">
+                    <label for="plan-select">Plan</label>
+                    <select name="planes_select" id="plan-select" required>
                         <option value="" hidden>Seleccione su plan</option>
                         <option value="economico">Economico</option>
                         <option value="normal">Normal</option>
@@ -90,7 +97,14 @@
 
             </div>
         </section>
-        <section class="resultado-section"></section>
+        <section class="resultado-section" id="resultado">
+            <div class="resultado-content">
+                <h2>Tu Plan Sugerido</h2>
+                <div id="resultado-output">
+                    <!-- JS -->
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
