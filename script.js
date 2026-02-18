@@ -51,7 +51,7 @@ function renderResultado({ destino, dias, plan, presupuesto, estimado }){
         <p><strong>Días:</strong> ${dias}</p>
         <p><strong>Plan:</strong> ${plan}</p>
         <p><strong>Presupuesto ingresado:</strong> $${presupuesto}</p>
-        <p><strong>Destino:</strong> $${estimado}</p>
+        <p><strong>Estimado:</strong> $${estimado}</p>
         <p><strong>Estado:</strong> ${ok ? "Te alcanza" : "Podría quedar corto"}</p>
     `;
 }
@@ -75,7 +75,7 @@ form.addEventListener("submit", (e) => {
     const plan = planSelect.value;
 
     // Validaciones mínimas
-    if (!destinoId || !dias || !plan || dias < 1 || presupuesto || presupuesto < 50) {
+    if (!destinoId || !dias || !plan || dias < 1 || !presupuesto || presupuesto < 50) {
         output.innerHTML = `<p>Completa todos los campos con valores validos. </p>`;
         return;
     }
@@ -90,8 +90,8 @@ form.addEventListener("submit", (e) => {
         estimado,
       });
 
-      btnReset?.addEventListener("click", () => {
-        resetSimulador();
-      });
-
 })
+
+btnReset?.addEventListener("click", () => {
+    resetSimulador();
+  });
