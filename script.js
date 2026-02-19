@@ -42,12 +42,7 @@ function calcularPresupuestoEstimado(destinoId, dias, plan){
 
     return { destino, base, estimado, mult };
 }
-function CalcularPresupuestoMinimo(destino,dias,valorPLan){
-    console.log("valor plan:",valorPLan)
-    const presupuestoMinimo=(destino.costoDiario*dias)*valorPLan;
 
-    return presupuestoMinimo;
-}
 
 function renderResultado({ destino, dias, plan, presupuesto, estimado }){
     const ok = presupuesto >= estimado;
@@ -116,14 +111,8 @@ function validarDatos({destinoId,dias,plan,presupuesto}){
     if (!MULTIPLICADOR_PLAN.hasOwnProperty(plan)) {
         return "Ingresa uno de los planes disponibles";
       }
-    const presupuestoMinimo=CalcularPresupuestoMinimo(destino,dias,MULTIPLICADOR_PLAN[plan])
-    console.log("presupuesto minimo",presupuestoMinimo)
-    if(presupuesto<presupuestoMinimo){
-        return "Tu presupuesto es menor al minimo para ese destino"
-
-    }
  
-
+ 
     return null
 
 
