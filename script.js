@@ -104,7 +104,7 @@ function validarDatos({destinoId,dias,plan,presupuesto}){
         return "Solo puedes ingresar un valor de dia entre 1-30"
 
     }
-    if(!Number.isFinite(presupuesto) || presupuesto<=0){
+    if(!Number.isFinite(presupuesto) || presupuesto<=0 ||presupuesto<50){
         return"ingresa un valor de presupuesto valido"
 
     }
