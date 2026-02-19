@@ -42,6 +42,12 @@ function calcularPresupuestoEstimado(destinoId, dias, plan){
 
     return { destino, base, estimado, mult };
 }
+function CalcularPresupuestoMinimo(destino,dias,valorPLan){
+    console.log("valor plan:",valorPLan)
+    const presupuestoMinimo=(destino.costoDiario*dias)*valorPLan;
+
+    return presupuestoMinimo;
+}
 
 function renderResultado({ destino, dias, plan, presupuesto, estimado }){
     const ok = presupuesto >= estimado;
@@ -73,12 +79,13 @@ form.addEventListener("submit", (e) => {
     const dias = Number(diasInput.value);
     const presupuesto = Number(presupuestoInput.value);
     const plan = planSelect.value;
+    const error= validarDatos({destinoId,dias,plan,presupuesto})
 
-    // Validaciones mínimas
-    if (!destinoId || !dias || !plan || dias < 1 || !presupuesto || presupuesto < 50) {
-        output.innerHTML = `<p>Completa todos los campos con valores validos. </p>`;
+    if(error){
+        output.innerHTML = `<p>${error}</p>`
         return;
     }
+   
 
     const { destino, estimado } = calcularPresupuestoEstimado(destinoId, dias, plan);
 
@@ -91,6 +98,39 @@ form.addEventListener("submit", (e) => {
       });
 
 })
+
+function validarDatos({destinoId,dias,plan,presupuesto}){
+    const destino = DESTINOS.find((d) => d.id === destinoId);
+    if(!destino){
+        return "Destino invalido"
+
+    }
+    if(!Number.isInteger(dias) || dias < 1 || dias > 30){
+        return "Solo puedes ingresar un valor de dia entre 1-30"
+
+    }
+    if(!Number.isFinite(presupuesto) || presupuesto<=0){
+        return"ingresa un valor de presupuesto valido"
+
+    }
+    if (!MULTIPLICADOR_PLAN.hasOwnProperty(plan)) {
+        return "Ingresa uno de los planes disponibles";
+      }
+    const presupuestoMinimo=CalcularPresupuestoMinimo(destino,dias,MULTIPLICADOR_PLAN[plan])
+    console.log("presupuesto minimo",presupuestoMinimo)
+    if(presupuesto<presupuestoMinimo){
+        return "Tu presupuesto es menor al minimo para ese destino"
+
+    }
+ 
+
+    return null
+
+
+}
+
+
+
 
 btnReset?.addEventListener("click", () => {
     resetSimulador();
