@@ -1,3 +1,4 @@
+
 :root {
     --color-principal: #152E42;
     --color-secundario: #E3EAF0;
@@ -15,32 +16,39 @@
     
 }
 
-
+*{
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth; /* Para que el movimiento sea fluido */
+}
 
 body{
-
-    padding-top: 80px;
-    font-family: 'Lato', sans-serif;
     margin:0;
-    background-color:var (--color-secundario);
-    color: var (--color-terciario);
-    padding-top: 80px;
 
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color-secundario);
 
+   
 }
 
-
-h1{font-size: 40px;}
+h1{font-size: 52px;}
 h2{font-size: 30px;}
 h3{font-size: 16px;}
-p{font-size: 20px;}
+p{font-size: 18px;}
 
 
 
-button:hover{
-    background-color: #E3EAF0;
+
+
+main{  
+    width: 100%;
+    & section{
+        padding-top: 150px;
+    
+    }
+
 }
-
 
 
 header {
@@ -55,20 +63,12 @@ header .logo{
     margin: 0;
     display: flex;
     flex-direction: start;
-    padding: 25px 30px;
+    align-items: center;
+    padding-left: 30px;
     font-weight: bold;
     color: #E3EAF0;
     font-size: 40px;
 }
-
-
-header .nav{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    padding-bottom: 25px;
-}
-
 
 
 .navbar{
@@ -76,6 +76,7 @@ header .nav{
     justify-content: space-between;
     background-color: var (--color-principal);
     margin-right: 30px;
+
 } 
 
 .navbar ul{
@@ -93,27 +94,65 @@ header .nav{
     text-decoration: none;
     color: #E3EAF0
 
+   
 }
-
-
-
-header a{
-    padding: 5px 12px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #041017;
-}
-
-header a:hover{
+ .navbar li a:hover{
     color: #041017;
 }
 
 
 .hero{
-display:flex;
-align-items: center;
-gap: 20px;
+    padding-top: 250px;
 
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero img{
+    width: 520px;
+    height: 480px;
+    border-radius: 20px;
+}
+
+.hero-actions {
+    gap: 100px;
+    display:flex;
+    justify-content: start;
+   
+}
+
+.hero-actions a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 251px;
+    height: 54px;
+    border: none;
+    border-radius: 30px;
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #152E42;
+    color: rgb(255, 255, 255);
+    gap: 10px;
+   
+}
+
+.hero-actions a:hover{
+    background-color: #0e202e;
+    color: #596063;
+}
+
+
+
+
+.hero-main{
+    display:flex;
+    
 }
 
 /*.hero{
@@ -129,50 +168,130 @@ gap: 20px;
 
     
 .hero-content{
-    display:flex;
+    max-width: 700px;
+    display: flex;
     flex-direction: column;
+    gap: 35px;
+
+    & span {
+        margin: 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        border-radius: 20px;
+        color: #E3EAF0;
+        width: 390px;
+        height: 30px;
+        background-color: var(--color-principal);
+        gap: 10px;
+        padding: 6px 16px;
+
+
+       
+
+    }
+
+    & h1 {
+        margin: 0;
+        width: 700px;
+        height: auto;
+    
+    }
+
+    & p{
+        margin: 0;
+        text-align: start; 
+        text-decoration: none;
+        font-weight: 600;
+    
+    }
+
 }
 
-.hero-content h1 {
-text-indent: 30px;
-text-shadow: 0px 0px 2px #E3EAF0;
-margin-top: 30px;
-margin-left: 0px;
-color: var(--color-secundario);
-background-color: var(--color-principal);
-background-position: 0% 0%;
-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-border-radius: 16px;
-border-style: groove;
+
+
+
+.hero-card{
+    display: flex;
+    justify-content: center;
+    padding-bottom: auto;
+    margin-top: 150px;
+    width: 100%;
+
  
 }
 
+.hero-card .card{
+    
+    width: 299.25px;
+    min-height: 113px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px groove #041017;
 
-.hero-content p {
-    text-align: center; 
-    text-decoration: none;
-    font-weight: 600;
-    background-color: #E3EAF0
-    color: #4A718C
-    
-    
-    
-}
+    & p,h2 {
+        margin: 0;
+    }
 
-.hero-actions {
-    justify-content: space-around;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    display:flex;
-    border-radius: 10px;
 }
 
 .como-funciona {
-    background-attachment: scroll;
-    height: 160vh;
-    background-image:url('https://www.hola.com/horizon/landscape/7ae1e4faab9b-adobestock271966196.jpg')
     
+    background-attachment: scroll;
+    background-image:url('https://www.hola.com/horizon/landscape/7ae1e4faab9b-adobestock271966196.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+ 
+    & .como-funciona-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        & p,h1{
+            color: white;
+            margin: 0;
+        }
+        & .como-funciona-cards {
+            display: flex;
+    
+        }
+    }
 
+  
 }
+.destinos-section {
+    background-color: red;
+    min-height: 100vh;
+    min-width: 100vw;
+ 
+    & .destinos-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        & p,h1{
+            color: white;
+            margin: 0;
+        }
+
+        & .destinos-cards {
+            display: flex;
+    
+        }
+
+    }
+
+  
+}
+
+
 
 button{
     font-size: 1.5em;
@@ -183,6 +302,9 @@ button{
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     color: white;
     background-color: #041017;
+}
+button:hover{
+    background-color: #E3EAF0;
 }
 
 ul {
@@ -198,3 +320,30 @@ nav ul li a {
 
 
 .color-acento{ color: #041017; }
+
+.simulador-content {
+    Color: #E3EAF0;
+    
+}
+    
+.simulador-section {
+        background-image: url(img/cover-pag.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+    
+.simulador-section {
+        background: linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+          ),
+          url(img/cover-pag.jpg);
+        background-size: cover;
+        background-position: center;
+}
