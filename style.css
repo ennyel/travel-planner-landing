@@ -259,7 +259,15 @@ header .logo{
         }
         & .como-funciona-cards {
             display: flex;
+            justify-content: center;
+            gap: 50px;
     
+            & .paso-card{
+                width: 300px;
+                height: 280px;
+                background-color: red;
+            }
+
         }
     }
 
