@@ -624,6 +624,87 @@ nav ul li a {
         }
     }
 }
+
+.footer{
+    background-color: var(--color-principal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-secundario);
+    height: 340px;
+    width: 100%;
+    gap: 40px;
+    & .footer-content {
+        display: flex;
+        gap: 300px;
+
+        & .servicios {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+
+        }
+        & .travel-planner{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 320px;
+            gap: 10px;
+        }
+        & .destinos {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+        & .contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        & span {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        & p {
+            margin: 0;
+            color: var(--color-secundario);
+            font-size: 18px;
+            font-weight: 400;
+        }
+        & a {
+            color: var(--color-secundario);
+            text-decoration: none;
+            font-size: 18px;
+
+
+        }
+
+    }
+    & hr{
+        margin: 0;
+        color: var(--color-secundario);
+        width: 100vh;
+
+    }
+
+    & .footer-end{
+        color: var(--color-secundario);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+        & p {
+            margin: 0;
+
+        }
+    }
+}
     
 
 
