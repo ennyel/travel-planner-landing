@@ -284,7 +284,7 @@ header .logo{
 
 }
 
-.como-funciona {
+.como-funciona-section {
     background: linear-gradient(
       rgba(0,0,0,0.5),
       rgba(0,0,0,0.5)
@@ -317,6 +317,7 @@ header .logo{
             color: var(--color-secundario);
         }
         & .como-funciona-cards {
+            margin-top: 120px;
             display: flex;
             justify-content: center;
             
@@ -333,10 +334,10 @@ header .logo{
                 gap: 20px;
                 & .header-card{
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    gap: 20px;
+                    gap: 180px;
 
                     & span{
                         display: flex;
@@ -350,11 +351,11 @@ header .logo{
 
     
                       
-    
+                        
                     }
                     & i svg{             
-                        width: 32px;
-                        height: 32px;
+                        width: 50px;
+                        height: 50px;
                         color: var(--color-principal);
                     }
                 }
@@ -400,10 +401,12 @@ header .logo{
     min-width: 100vw;
  
     & .destinos-content {
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+       
         gap: 16px;
         & p,h1{
             color: white;
@@ -411,7 +414,48 @@ header .logo{
         }
 
         & .destinos-cards {
+            background-color: var(--color-card);
+            margin-top: 120px;
             display: flex;
+            justify-content: center;
+            border-radius: 16px;
+            gap: 50px;
+
+
+            & .destino-card{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 302px;
+                height: 324px;
+
+                & .header-card{
+                    & img {
+                        width: 302px;
+                        height: 200px;
+                        border-top-right-radius: 16px;
+                        border-top-left-radius:16px ;                    }
+                    
+                }
+                
+                & .content-card{
+                    color: var(--color-principal);
+                    
+                    & h3{
+                        margin: 0;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                    & p{
+                        margin: 0;
+                        color: var(--color-principal);
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+                }
+
+
+            }
     
         }
 
