@@ -47,7 +47,8 @@ function actualizarResumen(){
     resumenPlan.textContent = planSelect.value || "---";
 
     if(destinoEncontado){
-        resumenHeader.innerHTML=`<img src="${destinoEncontado.imagen}" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">`;
+        resumenHeader.innerHTML=`<img src="${destinoEncontado.imagen}" style="width:100%; height:100%; object-fit:cover; border-top-right-radius: 10px;
+                        border-top-left-radius:10px ;  ">`;
         resumenHeaderContent.style.display="none";
     }
     else{
