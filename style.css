@@ -332,6 +332,11 @@ header .logo{
                 border-radius: 16px;
                 padding: 10px;
                 gap: 20px;
+                transition: all 1s ease;
+
+                &:hover {
+                    transform: scale(1.1, 1.1);
+                }
                 & .header-card{
                     display: flex;
                     flex-direction: row;
@@ -436,7 +441,12 @@ header .logo{
                 align-items: center;
                 width: 302px;
                 height: 324px;
+                transition: all 0.5s ease;
 
+
+                &:hover {
+                    transform: scale(1.1, 1.1);
+                }
                 & .header-card{
                     & img {
                         width: 302px;
@@ -507,10 +517,7 @@ nav ul li a {
 
 .color-acento{ color: #041017; }
 
-.simulador-content {
-    Color: #E3EAF0;
-    
-}
+
     
 .simulador-section {
     background: linear-gradient(
@@ -524,11 +531,12 @@ nav ul li a {
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
-
     & .simulador-content {
+        Color: #E3EAF0;
+
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -551,77 +559,159 @@ nav ul li a {
         }
 
 
-        & .simulador-form {
-            background-color: var(--color-card);
-            width: 500px;
-            height: 500px;
+        
+        & .simulador-presentation{
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            
-            gap: 25px;
+            gap: 100px;
 
-            & .input-content {
-                display: flex;
-                flex-direction:column;
-                max-width: 398px;
-               
-                width: 100%;
-                
-                & label{
-                    color:var(--color-principal);
-                    font-size: 14px;
-                    font-weight: 500;
-                }
-    
-                & input,select {
-                    height: 40px;
-                    border-radius: 10px;
-                    border: none;
-                  
-                }
-
-                & input::placeholder {
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-                & input:focus{
-                    outline: none;
-                    border: 2px solid var(--color-terciario);
-                }
-               
-
-            }
-
-            & .submit-content {
+            & .simulador-form {
+                background-color: var(--color-card);
+                width: 500px;
+                height: 500px;
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
-                max-width: 398px;
-
-                width: 100%;
-                & .submit-button{
-                    color: var(--color-secundario);
-                    background-color: var(--color-principal);
-                    border: none;
-                    height: 40px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                
+                gap: 25px;
+    
+                & .input-content {
+                    display: flex;
+                    flex-direction:column;
+                    max-width: 398px;
+                   
+                    width: 100%;
                     
+                    & label{
+                        color:var(--color-principal);
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+        
+                    & input,select {
+                        height: 40px;
+                        border-radius: 10px;
+                        border: none;
+                      
+                    }
+    
+                    & input::placeholder {
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                    & input:focus{
+                        outline: none;
+                        border: 2px solid var(--color-terciario);
+                    }
+                   
+    
+                }
+    
+                & .submit-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    max-width: 398px;
+    
+                    width: 100%;
+                    & .submit-button{
+                        color: var(--color-secundario);
+                        background-color: var(--color-principal);
+                        border: none;
+                        height: 40px;
+                        
+                        border-radius: 10px;
+    
+                    }
+                    & .submit-button:hover {
+                        background-color: #0e202e;
+                        color: #596063;
+                    }
+                }
+                
+              
+                
+                
+                
+            }
+
+            & .resumen-viaje {
+                border-radius: 10px;
+
+                width: 500px;
+                height: 500px;
+                color: var(--color-principal);
+                background: var(--color-card);
+
+                & .header-resumen{
                     border-radius: 10px;
 
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 500px;
+                    height: 256px;
+                    background-color: var(--color-secundario);
+
+                    & #header-content-resumen{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 500px;
+                        height: 256px;
+
+                        & svg,p{
+                            color: var(--color-terciario);
+                        }
+
+                    }
+                   
                 }
-                & .submit-button:hover {
-                    background-color: #0e202e;
-                    color: #596063;
+
+                & .content-resumen{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 20px;
+                    & h4{
+                        margin: 0;
+                    }
+
+                    & .content-values{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        & .values-travel{
+                            display: flex;
+                            justify-content: space-between;
+
+                            &:nth-child(1),
+                            &:nth-child(2),
+                            &:nth-child(3){
+                                border-bottom: 2px solid var(--color-principal);
+                            }   
+
+                            & .data{
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
+                            & .data-value {
+                                font-size: 19px;
+                                font-weight: 600;
+                            }
+                        }
+                      
+                        
+                    }
+
                 }
             }
-            
-          
-            
-            
-            
         }
+        
     }
 }
 
@@ -722,3 +812,6 @@ button:hover{
 }
 
 
+.is-hidden{
+    display: none;
+}

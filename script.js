@@ -1,10 +1,10 @@
 // == Datos base (Simulador) ==
 
 const DESTINOS = [
-    {id: "panama", nombre: "Panamá", costoDiario: 80},
-    {id: "medellin", nombre: "Medellín", costoDiario: 70},
-    {id: "mexico", nombre: "México", costoDiario: 90},
-    {id: "madrid", nombre: "Madrid", costoDiario: 120},
+    {id: "panama", nombre: "Panamá", costoDiario: 80, imagen:"./img/Panamá-img.jpeg"},
+    {id: "medellin", nombre: "Medellín", costoDiario: 70, imagen:"./img/Medellin-img.jpeg"},
+    {id: "mexico", nombre: "México", costoDiario: 90, imagen:"./img/Mexico-img.jpeg"},
+    {id: "madrid", nombre: "Madrid", costoDiario: 120, imagen:"./img/Madrid-img.jpeg"},
 ];
 
 // Multiplicador por plan
@@ -21,8 +21,46 @@ const destinoSelect = document.getElementById("destino-select");
 const diasInput = document.getElementById("dias");
 const presupuestoInput = document.getElementById("presupuesto");
 const planSelect = document.getElementById("plan-select")
+const outputContent= document.getElementById("resultado")
 const output = document.getElementById("resultado-output");
 const btnReset = document.getElementById("btn-reset");
+
+
+const resumenHeader= document.getElementById("header-resumen");
+const resumenHeaderContent= document.getElementById("header-content-resumen")
+const resumenDestino= document.getElementById("destino");
+const resumenDuracion=document.getElementById("duracion");
+const resumenPresupuesto=document.getElementById("presupuestoResumen");
+const resumenPlan=document.getElementById("plan");
+
+
+function actualizarResumen(){
+    const destinoId = destinoSelect.value;
+    console.log("id",destinoId);
+    const destinoEncontado= DESTINOS.find((d)=>d.id === destinoId);
+    console.log("objeto:",destinoEncontado)
+    console.log("presupuesto_input",presupuestoInput.value)
+
+    resumenDestino.textContent= destinoEncontado?  destinoEncontado.nombre : "---";
+    resumenDuracion.textContent= diasInput.value? `${diasInput.value} dias` : "---";
+    resumenPresupuesto.textContent= presupuestoInput.value? `$ ${presupuestoInput.value} USD` : "$0 USD";
+    resumenPlan.textContent = planSelect.value || "---";
+
+    if(destinoEncontado){
+        resumenHeader.innerHTML=`<img src="${destinoEncontado.imagen}" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">`;
+        resumenHeaderContent.style.display="none";
+    }
+    else{
+        resumenHeader.innerHTML = "";
+        resumenHeader.appendChild(resumenHeaderContent)
+        resumenHeaderContent.style.display="";
+
+    }
+
+}
+
+
+
 
 function poblarDestinos(){
     DESTINOS.forEach((d) => {
@@ -46,7 +84,7 @@ function calcularPresupuestoEstimado(destinoId, dias, plan){
 
 function renderResultado({ destino, dias, plan, presupuesto, estimado }){
     const ok = presupuesto >= estimado;
-
+    outputContent.classList.remove("is-hidden")
     output.innerHTML = `
         <p><strong>Destino:</strong> ${destino.nombre}</p>
         <p><strong>Días:</strong> ${dias}</p>
@@ -55,10 +93,13 @@ function renderResultado({ destino, dias, plan, presupuesto, estimado }){
         <p><strong>Estimado:</strong> $${estimado}</p>
         <p><strong>Estado:</strong> ${ok ? "Te alcanza" : "Podría quedar corto"}</p>
     `;
+
+    outputContent.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function resetSimulador(){
     form.reset();
+    outputContent.classList.add("is-hidden")
     output.innerHTML= "";
 }
 
@@ -118,9 +159,13 @@ function validarDatos({destinoId,dias,plan,presupuesto}){
 
 }
 
-
+form.addEventListener("input",()=>{
+    actualizarResumen();
+})
 
 
 btnReset?.addEventListener("click", () => {
     resetSimulador();
+    actualizarResumen();
+
   });

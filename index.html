@@ -119,10 +119,10 @@
                 <span>DESTINOS POPULARES</span>
                 <h1>Explorá los destinos más elegidos</h1>
                 <p>Desde las playas del Caribe hasta los Alpes suizos. Encontrá tu próximo destino soñado.</p>
-                <div class="destinos-cards">
+                <div class="destinos-cards" id="resumen-header-img">
                     <article class="destino-card">
                         <div class="header-card">
-                            <img src="./img/Playa-img.jpg.jpeg" alt="">
+                            <img src="./img/Playa-img.jpeg" alt="">
                         </div>
                         <div class="content-card">
                             <h3>Cancún, México</h3>
@@ -132,7 +132,7 @@
                     </article>
                     <article class="destino-card">
                         <div class="header-card">
-                            <img src="./img/Panamá-img.jpg.jpeg" alt="">
+                            <img src="./img/Panamá-img.jpeg" alt="">
                         </div>
                         <div class="content-card">
                             <h3>Cancún, México</h3>
@@ -142,7 +142,7 @@
                     </article>
                     <article class="destino-card">
                         <div class="header-card">
-                            <img src="./img/Montaña-img.jpg.jpeg" alt="">
+                            <img src="./img/Montaña-img.jpeg" alt="">
                         </div>
                         <div class="content-card">
                             <h3>Cancún, México</h3>
@@ -152,7 +152,17 @@
                     </article>
                     <article class="destino-card">
                         <div class="header-card">
-                            <img src="./img/Medellin-img.jpg.jpeg" alt="">
+                            <img src="./img/Medellin-img.jpeg" alt="">
+                        </div>
+                        <div class="content-card">
+                            <h3>Cancún, México</h3>
+                            <p>Playas paradisíacas · Desde $800/día</p>
+                            <span>Popular</span>
+                        </div>
+                    </article>
+                    <article class="destino-card">
+                        <div class="header-card">
+                            <img src="./img/Mexico-img.jpeg" alt="">
                         </div>
                         <div class="content-card">
                             <h3>Cancún, México</h3>
@@ -170,45 +180,81 @@
                     <h1>Simulador de viajes</h1>
                     <p>Personaliza tu experiencia y obtiene una estimacion de presupuesto al instante</p>
                 </div>
-                <form class="simulador-form">
-                    <div class="input-content">
-                        <label for="destino-select">Destinos</label>
-                        <select name="destinos_select" id="destino-select" required>
-                            <option value="" hidden>Seleccione su destino</option>
-                        </select>
+                <div class="simulador-presentation">
+                    <form class="simulador-form" id="simulador-form">
+                        <div class="input-content">
+                            <label for="destino-select">Destinos</label>
+                            <select name="destinos_select" id="destino-select" required>
+                                <option value="" hidden>Seleccione su destino</option>
+                            </select>
+                        </div>
+                       
+                        <div class="input-content">
+                            <label for="dias">Días</label>
+                        <input type="number" id="dias" name="dias" min="1" max="30" required placeholder="Ej: 5">
+                        </div>
+                        
+                        <div class="input-content">
+                            <label for="presupuesto">Presupuesto (USD)</label>
+                            <input type="number" id="presupuesto" name="presupuesto" min="50" step="10" required placeholder="Ej: 800">
+                        </div>
+                        
+                        <div class="input-content">
+                            <label for="plan-select">Plan</label>
+                            <select name="planes_select" id="plan-select" required>
+                                <option value="" hidden>Seleccione su plan</option>
+                                <option value="economico">Economico</option>
+                                <option value="normal">Normal</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <div class="submit-content">
+                            <input class="submit-button" type="submit" value="Generar plan">
+                            <button type="button" id="btn-reset">Limpiar</button>
+                        </div>
+                        
+                    </form>
+                    <div class="resumen-viaje">
+                        <div class="header-resumen" id="header-resumen">
+                            <div id="header-content-resumen">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 4.418-8 12-8 12s-8-7.582-8-12a8 8 0 1 1 16 0Z"/><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M12 11a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/></g></svg>
+                                <p>Selecciona un destino para ver la vista previa</p>
+                            </div>
+                            
+                        </div>
+                        <div class="content-resumen">
+                            <h4>Resumen de viaje</h4>
+                            <div class="content-values">
+                                <div class="values-travel">
+                                    <span class="data">Destino</span>
+                                    <span class="data-value" id="destino">---</span>
+                                </div>
+                                <div class="values-travel">
+                                    <span class="data">Duracion</span>
+                                    <span class="data-value" id="duracion">---</span>
+                                </div>
+                                <div class="values-travel">
+                                    <span class="data">Plan</span>
+                                    <span class="data-value" id="plan">---</span>
+                                </div>
+                                <div class="values-travel">
+                                    <span class="data">presupuesto</span>
+                                    <span class="data-value" id="presupuestoResumen">$0 USD</span>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
-                   
-                    <div class="input-content">
-                        <label for="dias">Días</label>
-                    <input type="number" id="dias" name="dias" min="1" max="30" required placeholder="Ej: 5">
-                    </div>
-                    
-                    <div class="input-content">
-                        <label for="presupuesto">Presupuesto (USD)</label>
-                        <input type="number" id="presupuesto" name="presupuesto" min="50" step="10" required placeholder="Ej: 800">
-                    </div>
-                    
-                    <div class="input-content">
-                        <label for="plan-select">Plan</label>
-                        <select name="planes_select" id="plan-select" required>
-                            <option value="" hidden>Seleccione su plan</option>
-                            <option value="economico">Economico</option>
-                            <option value="normal">Normal</option>
-                            <option value="premium">Premium</option>
-                        </select>
-                    </div>
-                    
-                    
-                    <div class="submit-content">
-                        <input class="submit-button" type="submit" value="Generar plan">
-                        <button type="button" id="btn-reset">Limpiar</button>
-                    </div>
-                    
-                </form>
+
+                </div>
+                
 
             </div>
         </section>
-        <section class="resultado-section" id="resultado" hidden>
+        <section class="resultado-section is-hidden" id="resultado" >
             <div class="resultado-content">
                 <h2>Tu Plan Sugerido</h2>
                 <div id="resultado-output">
@@ -255,6 +301,6 @@
         </div>
     </footer>
 
-    <script src="script.js" ></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
