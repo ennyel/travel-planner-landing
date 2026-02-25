@@ -83,20 +83,53 @@ function calcularPresupuestoEstimado(destinoId, dias, plan){
 }
 
 
-function renderResultado({ destino, dias, plan, presupuesto, estimado }){
+function renderResultado({ destino, dias, plan, presupuesto, estimado }) {
     const ok = presupuesto >= estimado;
-    outputContent.classList.remove("is-hidden")
+  
+    outputContent.classList.remove("is-hidden");
+  
+    const money = (n) =>
+      new Intl.NumberFormat("es-PA", { style: "currency", currency: "USD" }).format(n);
+  
+    const estadoTexto = ok ? "✅Te alcanza" : "⚠️Podría quedar corto";
+    const badgeClass = ok ? "ok" : "warn";
+  
     output.innerHTML = `
-        <p><strong>Destino:</strong> ${destino.nombre}</p>
-        <p><strong>Días:</strong> ${dias}</p>
-        <p><strong>Plan:</strong> ${plan}</p>
-        <p><strong>Presupuesto ingresado:</strong> $${presupuesto}</p>
-        <p><strong>Estimado:</strong> $${estimado}</p>
-        <p><strong>Estado:</strong> ${ok ? "Te alcanza" : "Podría quedar corto"}</p>
+      <div class="resultado-card">
+        <div class="resultado-top">
+          <div class="resultado-badges">
+            <span class="badge">${destino.nombre}</span>
+            <span class="badge">${dias} días</span>
+            <span class="badge">${plan}</span>
+            <span class="badge ${badgeClass}">${estadoTexto}</span>
+          </div>
+        </div>
+  
+        <div class="resultado-grid">
+          <div class="resultado-item">
+            <div class="label">Presupuesto ingresado</div>
+            <div class="value">${money(presupuesto)}</div>
+          </div>
+  
+          <div class="resultado-item big">
+            <div class="label">Estimado del viaje</div>
+            <div class="value">${money(estimado)}</div>
+          </div>
+  
+          <div class="resultado-item">
+            <div class="label">Diferencia</div>
+            <div class="value">${money(presupuesto - estimado)}</div>
+          </div>
+        </div>
+  
+        <div class="resultado-note">
+          *Este estimado usa el costo diario del destino × días × multiplicador del plan.
+        </div>
+      </div>
     `;
-
-    outputContent.scrollIntoView({behavior:'smooth',block:'start'});
-}
+  
+    outputContent.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
 function resetSimulador(){
     form.reset();
