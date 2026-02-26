@@ -1,10 +1,10 @@
 // == Datos base (Simulador) ==
 
 const DESTINOS = [
-    {id: "panama", nombre: "Panamá", costoDiario: 80, imagen:"./img/Panamá-img.jpeg"},
-    {id: "medellin", nombre: "Medellín", costoDiario: 70, imagen:"./img/Medellin-img.jpeg"},
-    {id: "mexico", nombre: "México", costoDiario: 90, imagen:"./img/Mexico-img.jpeg"},
-    {id: "madrid", nombre: "Madrid", costoDiario: 120, imagen:"./img/Madrid-img.jpeg"},
+    {id: "panama", nombre: "Panamá", costoDiario: 80, imagen:"./img/Panamá-img.jpeg", descripcion: "Canal, playas y cultura tropical"},
+    {id: "medellin", nombre: "Medellín", costoDiario: 70, imagen:"./img/Medellin-img.jpeg", descripcion: "Ciudad de la eterna primavera"},
+    {id: "mexico", nombre: "México", costoDiario: 90, imagen:"./img/Mexico-img.jpeg", descripcion: "Playas paradisíacas y gastronomía"},
+    {id: "madrid", nombre: "Madrid", costoDiario: 120, imagen:"./img/Madrid-img.jpeg", descripcion: "Arte, historia y vida nocturna"},
 ];
 
 // Multiplicador por plan
@@ -74,6 +74,31 @@ function poblarDestinos(){
     })
 }
 
+function renderDestinos(){
+    const container = document.getElementById("destinos-cards");
+    container.innerHTML = DESTINOS.map((d) => `
+        <article class="destino-card">
+            <div class="header-card">
+                <img src="${d.imagen}" alt="${d.nombre}">
+            </div>
+            <div class="content-card">
+                <h3>${d.nombre}</h3>
+                <p>${d.descripcion} · Desde $${d.costoDiario}/día</p>
+                <span>Popular</span>
+            </div>
+        </article>
+    `).join("");
+}
+
+function renderFooterDestinos(){
+    const container = document.getElementById("footer-destinos");
+    DESTINOS.forEach((d) => {
+        const p = document.createElement("p");
+        p.textContent = d.nombre;
+        container.appendChild(p);
+    });
+}
+
 function calcularPresupuestoEstimado(destinoId, dias, plan){
     const destino = DESTINOS.find((d) => d.id === destinoId);
     const mult = MULTIPLICADOR_PLAN[plan] ?? 1;
@@ -87,7 +112,7 @@ function calcularPresupuestoEstimado(destinoId, dias, plan){
 
 function renderResultado({ destino, dias, plan, presupuesto, estimado }) {
     const ok = presupuesto >= estimado;
-  
+    
     outputContent.classList.remove("is-hidden");
   
     const money = (n) =>
@@ -127,6 +152,10 @@ function renderResultado({ destino, dias, plan, presupuesto, estimado }) {
         <div class="resultado-note">
           *Este estimado usa el costo diario del destino × días × multiplicador del plan.
         </div>
+        <div class="resultado-imagen">
+           <img  src="${destino.imagen}">
+        </div>
+       
       </div>
     `;
   
@@ -142,6 +171,8 @@ function resetSimulador(){
 // EVENTOS
 document.addEventListener("DOMContentLoaded", () => {
     poblarDestinos();
+    renderDestinos();
+    renderFooterDestinos();
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
 
