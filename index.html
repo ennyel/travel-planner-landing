@@ -13,12 +13,17 @@
     <header class="header">
         <nav class= "navbar">
         <div class="logo">Travel Planner</div>
-            <ul class= "menú">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#como-funciona">Como funciona</a></li>
-                <li><a href="#destinos">Destinos</a></li>
-                <li><a href="#simulador">Simulador</a></li>
-            </ul>
+        <button class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class= "menú" id="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#destinos">Destinos</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+        </ul>
         </nav>
 
     </header>
@@ -116,9 +121,12 @@
         </section>
         <section class="destinos-section" id="destinos">
             <div class="destinos-content">
-                <span>DESTINOS POPULARES</span>
-                <h1>Explorá los destinos más elegidos</h1>
-                <p>Desde las playas del Caribe hasta los Alpes suizos. Encontrá tu próximo destino soñado.</p>
+                <div class="header-destinos-content">
+                    <span>DESTINOS POPULARES</span>
+                    <h1>Explorá los destinos más elegidos</h1>
+                    <p>Desde las playas del Caribe hasta los Alpes suizos. Encontrá tu próximo destino soñado.</p>
+                </div>
+                
                 <div class="destinos-cards" id="resumen-header-img">
                     <article class="destino-card">
                         <div class="header-card">
@@ -212,7 +220,7 @@
                         
                         <div class="submit-content">
                             <input class="submit-button" type="submit" value="Generar plan">
-                            <button type="button" id="btn-reset">Limpiar</button>
+                            <button class="reset-button "type="button" id="btn-reset">Limpiar</button>
                         </div>
                         
                     </form>

@@ -34,6 +34,8 @@ const resumenPresupuesto=document.getElementById("presupuestoResumen");
 const resumenPlan=document.getElementById("plan");
 
 
+
+
 function actualizarResumen(){
     const destinoId = destinoSelect.value;
     console.log("id",destinoId);
@@ -140,6 +142,18 @@ function resetSimulador(){
 // EVENTOS
 document.addEventListener("DOMContentLoaded", () => {
     poblarDestinos();
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("is-open");
+    });
+    
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("is-open");
+        });
+    });
 });
 
 form.addEventListener("submit", (e) => {
@@ -203,3 +217,5 @@ btnReset?.addEventListener("click", () => {
     actualizarResumen();
 
   });
+
+
