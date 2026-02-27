@@ -35,7 +35,7 @@ main{
 }
 
 
-/* ========== HEADER / NAVBAR ========== */
+/* ========== HEADER / NAVBAR ==========  107.583*/
 
 header {
     position: fixed;
@@ -53,10 +53,18 @@ header {
         & .logo {
             margin: 0;
             display: flex;
+            justify-content: center;
             align-items: center;
             font-weight: bold;
             color: #E3EAF0;
             font-size: clamp(24px, 4vw, 40px);
+
+            & img{
+                width: 230px;
+                height: 100px;
+                padding: 20px;
+             
+            }
         }
 
         & .menu-toggle {
@@ -657,7 +665,7 @@ header {
             flex-wrap: wrap;
 
             & .simulador-form {
-                background-color: var(--color-card);
+
                 max-width: 500px;
                 width: 100%;
                 display: flex;
@@ -667,6 +675,12 @@ header {
                 border-radius: 10px;
                 padding: 30px 20px;
                 gap: 25px;
+                
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                background: rgba(227, 234, 240, 0.4);
+                border: 1px solid rgba(248, 240, 240, 0.3);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 
                 & .input-content {
                     display: flex;
@@ -737,8 +751,13 @@ header {
                 border-radius: 12px;
                 max-width: 500px;
                 width: 100%;
-                color: var(--color-principal);
-                background: var(--color-card);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                background: rgba(227, 234, 240, 0.4);
+                border: 1px solid rgba(248, 240, 240, 0.3);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+
 
                 & .header-resumen{
                     border-radius: 12px 12px 0 0;
@@ -956,6 +975,7 @@ header {
 }
 
 .resultado-section {
+    background-color: var(--color-terciario);
     padding-top: 150px;
     padding-bottom: 120px;
     min-height: 100vh;
